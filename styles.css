@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #ff0000, #0000ff);
+    background-size: 200% 200%;
+    animation: gradientAnimation 10s ease infinite;
+  }
+  
+  @keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  #game-board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    margin: 0 auto 20px;
+  }
+  
+  .cell {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+    transition: background 0.3s;
+    border: 1px solid #ddd;
+  }
+  
+  .cell:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  .cell.X {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .cell.O {
+    color: blue;
+    font-size: 2.5em;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  #status {
+    font-weight: bold;
+  }
+  
+  #reset-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #ff0000;
+    color: white;
+    transition: background 0.3s;
+  }
+  
+  #reset-btn:hover {
+    background: #0000ff;
+  }
+  
+  #status.win, #status.draw {
+    font-size: 1.5em;
+    color: #333;
+    animation: statusAnimation 0.5s infinite alternate;
+  }
+  
+  @keyframes statusAnimation {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+  }
+  
+  @media (max-width: 600px) {
+    #game-board {
+      width: 100%;
+    }
+  
+    .cell {
+      width: 33.33%;
+      height: 100px;
+    }
+  
+    .info {
+      flex-direction: column;
+    }
+  
+    #reset-btn {
+      margin-top: 10px;
+    }
+  }
+  
